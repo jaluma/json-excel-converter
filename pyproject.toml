@@ -20,9 +20,12 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-xlsxwriter = { version = "^1.2", optional = true }
+xlsxwriter = "2.0.0"
 fastapi = "0.68.1"
 uvicorn = {extras = ["standard"], version = "^0.20.0"}
+aiofiles = "^22.1.0"
+pydantic = {extras = ["basesettings"], version = "^1.10.4"}
+taskipy = "^1.10.3"
 
 [tool.poetry.extras]
 xlsxwriter = ['xlsxwriter']
@@ -30,8 +33,12 @@ xlsxwriter = ['xlsxwriter']
 [tool.poetry.scripts]
 
 
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.10.3"
+
 [tool.taskipy.tasks]
 dev = "uvicorn json_excel_api.api:app --reload"
+prod = "uvicorn json_excel_api.api:app --port 80"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5"
