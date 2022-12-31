@@ -4,14 +4,14 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "json_excel_converter"
-version = "1.3.0"
+version = "2.0.0"
 description = "JSON to excel convertor"
-authors = [ "Mirek Simek <miroslav.simek@vscht.cz>",]
+authors = [ "Mirek Simek <miroslav.simek@vscht.cz>", "Javier Martínez <javiermartinezalvarez98@gmail.com>"]
 include = [ "tox.ini", "poetry.lock",]
 exclude = [ ]
 readme = "README.md"
-homepage = 'https://github.com/oarepo/json-excel-converter'
-repository = 'https://github.com/oarepo/json-excel-converter'
+homepage = 'https://github.com/jaluma/json-excel-converter'
+repository = 'https://github.com/jaluma/json-excel-converter'
 keywords = [ 'json', 'excel', 'csv', 'xlsxwriter' ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -19,13 +19,19 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 xlsxwriter = { version = "^1.2", optional = true }
+fastapi = "0.68.1"
+uvicorn = {extras = ["standard"], version = "^0.20.0"}
 
 [tool.poetry.extras]
 xlsxwriter = ['xlsxwriter']
 
 [tool.poetry.scripts]
+
+
+[tool.taskipy.tasks]
+dev = "uvicorn json_excel_api.api:app --reload"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5"
