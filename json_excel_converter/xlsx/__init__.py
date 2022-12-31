@@ -14,6 +14,8 @@ class Formatter:
     def format(self, cell_data, rowidx, colidx, first, last):
         fmt = {}
         for format in self.formats:
+            if format is None:
+                continue
             fmt.update(format.data_format(cell_data, rowidx, colidx, first, last))
         strfmt = json.dumps(fmt, sort_keys=True)
         if strfmt in self.format_cache:
@@ -43,7 +45,8 @@ class Writer(bWriter):
     def __init__(self, file=None, workbook=None, sheet=None,
                  sheet_name=None, start_row=1, start_col=0,
                  header_formats=(), data_formats=(),
-                 column_widths=None, row_heights=None):
+                 column_widths=None, row_heights=None,
+                 global_configs=None):
         super().__init__()
         self.file = file
         self.workbook = workbook
@@ -59,6 +62,7 @@ class Writer(bWriter):
         self.data_formatter = Formatter(data_formats)
         self.column_widths = column_widths or {}
         self.row_heights = row_heights or {}
+        self.global_configs = global_configs
 
     def start(self):
         self.headers = []
@@ -72,9 +76,10 @@ class Writer(bWriter):
         self.raw = []
 
     def finish(self):
-        close = not self.sheet
+        # close = not self.workbook
+        if not self.workbook:
+            self.workbook = xlsxwriter.Workbook(self.file, options=self.global_configs)
         if not self.sheet:
-            self.workbook = xlsxwriter.Workbook(self.file)
             self.sheet = self.workbook.add_worksheet(self.sheet_name)
         self.header_formatter.workbook = self.workbook
         self.data_formatter.workbook = self.workbook
@@ -119,8 +124,8 @@ class Writer(bWriter):
                 continue
             self.sheet.set_row(row_idx, height)
 
-        if close:
-            self.workbook.close()
+        # if close:
+        #     self.workbook.close()
 
     def before_write(self):
         # might be overwritten by descendants
