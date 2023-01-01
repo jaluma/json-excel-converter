@@ -19,19 +19,13 @@ class ExcelSettingDefinition:
 class ExcelFormatDefinition:
     key: str
     value: object
-
-
-@dataclass
-class ExcelHeaderType:
-    type: str
-    format: Union[str, None] = None       # e.g. number ->   #.##
-    data: Union[object, None] = None   # e.g. currency -> symbol EUR
+    column_index: Union[int, None] = None
 
 
 @dataclass
 class ExcelHeaderInfoDefinition:
     name: str
-    type: ExcelHeaderType
+    type: str
     column_width: Optional[float] = 20
 
 

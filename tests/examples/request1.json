@@ -16,12 +16,18 @@
         "headers": [
           {
             "name": "freight.country",
-            "type": {
-              "type": "string",
-              "format": null,
-              "data": null
-            },
+            "type": "string",
             "column_width":40
+          },
+          {
+            "name": "prueba.date",
+            "type": "date",
+            "column_width": null
+          },
+          {
+            "name": "prueba.url",
+            "type": "url",
+            "column_width": null
           }
         ],
         "formats": [
@@ -93,6 +99,30 @@
         {
           "key": "valign",
           "value": "vcenter"
+        },
+        {
+          "key": "valign",
+          "value": "vcenter"
+        },
+        {
+          "key": "num_format",
+          "value": "#,##0.00",
+          "column_index": 1
+        },
+        {
+          "key": "num_format",
+          "value": "#,##0.00",
+          "column_index": 2
+        },
+        {
+          "key": "num_format",
+          "value": "dd/MM/yyyy",
+          "column_index": 4
+        },
+        {
+          "key": "bg_color",
+          "value": "#E2EFDA",
+          "column_index": 2
         }
       ],
       "start_row": null,
@@ -114,6 +144,45 @@
           "prueba": [
             {
               "date": "2022-12-31T16:39:32Z"
+            }
+          ]
+        },
+        {
+          "freight": [
+            {
+              "country": "CHINA"
+            }
+          ],
+          "20DRY": [
+            {
+              "cost": "2345",
+              "sale": "2532.6",
+              "scac": "MSC"
+            }
+          ],
+          "prueba": [
+            {
+              "date": "2022-12-31T16:39:32Z"
+            }
+          ]
+        },
+        {
+          "freight": [
+            {
+              "country": "CHINA"
+            }
+          ],
+          "20DRY": [
+            {
+              "cost": "2345",
+              "sale": "2532.6",
+              "scac": "MSC"
+            }
+          ],
+          "prueba": [
+            {
+              "date": "2022-12-31T16:39:32Z",
+              "url": "https://google.es"
             }
           ]
         }

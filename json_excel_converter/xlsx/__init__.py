@@ -13,7 +13,7 @@ class Formatter:
 
     def format(self, cell_data, rowidx, colidx, first, last):
         fmt = {}
-        for format in self.formats:
+        for format in filter(lambda x: x.column_index is None or x.column_index == colidx, self.formats):
             if format is None:
                 continue
             fmt.update(format.data_format(cell_data, rowidx, colidx, first, last))
