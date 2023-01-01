@@ -55,9 +55,9 @@ class Writer(bWriter):
         self.headers = []
         self.rows = []
         self.raw = []
+        self.start_row = start_row or 0
+        self.start_col = start_col or 0
         self.current_row = start_row
-        self.start_row = start_row
-        self.start_col = start_col
         self.header_formatter = Formatter(header_formats)
         self.data_formatter = Formatter(data_formats)
         self.column_widths = column_widths or {}
@@ -68,7 +68,7 @@ class Writer(bWriter):
         self.headers = []
         self.rows = []
         self.raw = []
-        self.current_row = 0
+        self.current_row = self.start_row
 
     def reset(self):
         self.headers = []
@@ -79,8 +79,7 @@ class Writer(bWriter):
         # close = not self.workbook
         if not self.workbook:
             self.workbook = xlsxwriter.Workbook(self.file, options=self.global_configs)
-        if not self.sheet:
-            self.sheet = self.workbook.add_worksheet(self.sheet_name)
+        self.sheet = self.workbook.get_worksheet_by_name(self.sheet_name) or self.workbook.add_worksheet(self.sheet_name)
         self.header_formatter.workbook = self.workbook
         self.data_formatter.workbook = self.workbook
         self.before_write()
@@ -99,7 +98,7 @@ class Writer(bWriter):
         if DEFAULT_COLUMN_WIDTH in self.column_widths:
             max_col = 0
             for header in self.headers:
-                col = 0
+                col = self.start_col
                 for cell in header:
                     col += cell.columns
                 if col > max_col:
@@ -108,7 +107,7 @@ class Writer(bWriter):
                 self.sheet.set_column(col, col, self.column_widths[DEFAULT_COLUMN_WIDTH])
 
         for header in self.headers:
-            col = 0
+            col = self.start_col
             for cell in header:
                 if cell.path in self.column_widths:
                     self.sheet.set_column(col, col + cell.columns - 1,

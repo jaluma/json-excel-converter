@@ -49,6 +49,8 @@ class ExcelWorksheetDefinition:
     definition: ExcelHeaderDefinition
     data: object
     formats: Union[list[ExcelFormatDefinition], None] = None
+    start_row: Union[int, None] = 1
+    start_column: Union[int, None] = 0
 
 
 @dataclass

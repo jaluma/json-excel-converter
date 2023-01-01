@@ -1,0 +1,179 @@
+{
+  "filename": "prueba",
+  "global_settings": {
+    "strings_to_numbers": true,
+    "strings_to_formulas": true,
+    "strings_to_urls": true,
+    "nan_inf_to_errors": true,
+    "default_date_format": "dd/MM/yyyy",
+    "remove_timezone": false,
+    "use_future_functions": true
+  },
+  "data": [
+    {
+      "name": "Flete Import FCL",
+      "definition": {
+        "headers": [
+          {
+            "name": "freight.country",
+            "type": {
+              "type": "string",
+              "format": null,
+              "data": null
+            },
+            "column_width":40
+          }
+        ],
+        "formats": [
+          {
+            "key": "bold",
+            "value": true
+          },
+          {
+            "key": "align",
+            "value": "center"
+          },
+          {
+            "key": "valign",
+            "value": "vcenter"
+          },
+          {
+            "key": "left",
+            "value": 1
+          },
+          {
+            "key": "right",
+            "value": 1
+          },
+          {
+            "key": "top",
+            "value": 1
+          },
+          {
+            "key": "bottom",
+            "value": 1
+          },
+          {
+            "key": "font_color",
+            "value": "white"
+          },
+          {
+            "key": "bg_color",
+            "value": "#002060"
+          }
+        ],
+        "default_column_height": 20,
+        "default_row_height": 20
+      },
+      "formats": [
+        {
+          "key": "left",
+          "value": 1
+        },
+        {
+          "key": "right",
+          "value": 1
+        },
+        {
+          "key": "top",
+          "value": 1
+        },
+        {
+          "key": "bottom",
+          "value": 1
+        },
+        {
+          "key": "align",
+          "value": "center"
+        },
+        {
+          "key": "valign",
+          "value": "vcenter"
+        }
+      ],
+      "start_row": null,
+      "start_column": null,
+      "data": [
+        {
+          "flete": [
+            {
+              "country": "CHINA"
+            }
+          ],
+          "20DRY": [
+            {
+              "cost": "2345",
+              "sale": "2532.6",
+              "sealine": "MSC"
+            }
+          ],
+          "prueba": [
+            {
+              "fecha": "2022-12-31T16:39:32Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flete Import FCL",
+      "definition": {
+        "headers": [],
+        "formats": [
+          {
+            "key": "bold",
+            "value": true
+          },
+          {
+            "key": "align",
+            "value": "center"
+          },
+          {
+            "key": "valign",
+            "value": "vcenter"
+          },
+          {
+            "key": "left",
+            "value": 1
+          },
+          {
+            "key": "right",
+            "value": 1
+          },
+          {
+            "key": "top",
+            "value": 1
+          },
+          {
+            "key": "bottom",
+            "value": 1
+          },
+          {
+            "key": "font_color",
+            "value": "white"
+          },
+          {
+            "key": "bg_color",
+            "value": "#002060"
+          }
+        ],
+        "default_column_height": null,
+        "default_row_height": null
+      },
+      "formats": null,
+      "start_row": 7,
+      "start_column": 0,
+      "data": [
+        {
+          "terms": "La presente oferta no supone compromiso contractual alguno hasta la previa aceptación de la misma por parte del cliente."
+        },
+        {
+          "terms": "La presente oferta no supone compromiso contractual alguno hasta la previa aceptación de la misma por parte del cliente."
+        },
+        {
+          "terms": "La presente oferta no supone compromiso contractual alguno hasta la previa aceptación de la misma por parte del cliente."
+        }
+      ]
+    }
+  ]
+}
