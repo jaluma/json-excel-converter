@@ -46,7 +46,7 @@ class Writer(bWriter):
                  sheet_name=None, start_row=1, start_col=0,
                  header_formats=(), data_formats=(),
                  column_widths=None, row_heights=None,
-                 global_configs=None):
+                 global_configs=None, translations=None):
         super().__init__()
         self.file = file
         self.workbook = workbook
@@ -63,6 +63,7 @@ class Writer(bWriter):
         self.column_widths = column_widths or {}
         self.row_heights = row_heights or {}
         self.global_configs = global_configs
+        self.translations = translations or {}
 
     def start(self):
         self.headers = []
@@ -79,7 +80,8 @@ class Writer(bWriter):
         # close = not self.workbook
         if not self.workbook:
             self.workbook = xlsxwriter.Workbook(self.file, options=self.global_configs)
-        self.sheet = self.workbook.get_worksheet_by_name(self.sheet_name) or self.workbook.add_worksheet(self.sheet_name)
+        self.sheet = self.workbook.get_worksheet_by_name(self.sheet_name) or self.workbook.add_worksheet(
+            self.sheet_name)
         self.header_formatter.workbook = self.workbook
         self.data_formatter.workbook = self.workbook
         self.before_write()
@@ -164,6 +166,9 @@ class Writer(bWriter):
 
     def output_header_cell(self, col, cell_data, span, header_idx, first, last):
         cell_data.span = span
+        cell_data.value = self.translations.get(cell_data.path) \
+                          or self.translations.get(cell_data.value) \
+                          or cell_data.value
         return self.output_cell(
             col, cell_data,
             self.header_formatter.format(cell_data, header_idx, col, first, last), data=None)

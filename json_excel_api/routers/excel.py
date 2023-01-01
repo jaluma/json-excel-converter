@@ -34,8 +34,9 @@ async def create_item(model: ExcelRequest):
                    },
                    global_configs=(model.global_settings or {}).__dict__,
                    start_row=worksheet.start_row,
-                   start_col=worksheet.start_column
-                )
+                   start_col=worksheet.start_column,
+                   translations=worksheet.translations
+                   )
 
         conv = Converter()
         conv.convert(worksheet.data, w)

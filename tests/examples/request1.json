@@ -30,6 +30,10 @@
             "value": true
           },
           {
+            "key": "italic",
+            "value": true
+          },
+          {
             "key": "align",
             "value": "center"
           },
@@ -95,7 +99,7 @@
       "start_column": null,
       "data": [
         {
-          "flete": [
+          "freight": [
             {
               "country": "CHINA"
             }
@@ -104,16 +108,23 @@
             {
               "cost": "2345",
               "sale": "2532.6",
-              "sealine": "MSC"
+              "scac": "MSC"
             }
           ],
           "prueba": [
             {
-              "fecha": "2022-12-31T16:39:32Z"
+              "date": "2022-12-31T16:39:32Z"
             }
           ]
         }
-      ]
+      ],
+      "translations": {
+        "freight": "Flete",
+        "country": "PAIS",
+        "cost": "COMPRA",
+        "sale": "VENTA",
+        "scac": "NAVIERA"
+      }
     },
     {
       "name": "Flete Import FCL",
@@ -122,6 +133,10 @@
         "formats": [
           {
             "key": "bold",
+            "value": true
+          },
+          {
+            "key": "italic",
             "value": true
           },
           {
@@ -173,7 +188,10 @@
         {
           "terms": "La presente oferta no supone compromiso contractual alguno hasta la previa aceptación de la misma por parte del cliente."
         }
-      ]
+      ],
+      "translations": {
+        "terms": "Terminos y Condiciones"
+      }
     }
   ]
 }

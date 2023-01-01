@@ -51,6 +51,7 @@ class ExcelWorksheetDefinition:
     formats: Union[list[ExcelFormatDefinition], None] = None
     start_row: Union[int, None] = 1
     start_column: Union[int, None] = 0
+    translations: Union[dict[str, str], None] = None
 
 
 @dataclass
