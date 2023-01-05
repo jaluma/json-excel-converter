@@ -19,6 +19,7 @@ class ExcelSettingDefinition:
 class ExcelFormatDefinition:
     key: str
     value: object
+    row_index: Union[int, None] = None
     column_index: Union[int, None] = None
 
 

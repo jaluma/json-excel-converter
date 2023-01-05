@@ -1,7 +1,8 @@
 class Format:
-    def __init__(self, fmt=None, column_index=None):
+    def __init__(self, fmt=None, column_index=None, row_index=None):
         self.fmt = fmt or {}
         self.column_index = column_index
+        self.row_index = row_index
 
     def data_format(self, cell_data, rowidx, colidx, first, last):
         return self.fmt

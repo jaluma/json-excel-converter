@@ -11,7 +11,7 @@ def map_format(header: ExcelFormatDefinition):
 
     return Format({
         header.key: header.value
-    }, header.column_index)
+    }, header.column_index, header.row_index)
 
 
 def map_column_config(header: ExcelHeaderInfoDefinition):

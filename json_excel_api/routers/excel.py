@@ -4,7 +4,7 @@ from fastapi.responses import FileResponse
 from json_excel_api.models.model import ExcelRequest
 from json_excel_api.utils import random_name, map_format
 
-from json_excel_converter import Converter
+from json_excel_converter import Converter, Options
 from json_excel_converter.xlsx import DEFAULT_COLUMN_WIDTH, DEFAULT_ROW_HEIGHT, Writer
 
 router = APIRouter(prefix="/excel",
